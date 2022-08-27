@@ -6,3 +6,6 @@ main-dist
 
 # 渲染进程模块
 render/dist-render
+
+# IDE
+.idea

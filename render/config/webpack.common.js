@@ -36,7 +36,30 @@ module.exports = {
                         },
 
                     },
-                    "scss-loader",
+                    "sass-loader",
+                ],
+            },
+            {
+                test: [/\.less$/],
+                // exclude:/node_modules/,
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: false,
+                            sourceMap: false,
+                        },
+
+                    },
+                    {
+                        loader: "less-loader",
+                        options: {
+                            lessOptions: {
+                                javascriptEnabled: true
+                            }
+                        }
+                    }
                 ],
             },
             {
