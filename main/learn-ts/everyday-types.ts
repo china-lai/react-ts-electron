@@ -121,3 +121,5 @@ const s2 = Symbol.for("str1")
 // 一些时候会显示一些 ts 错误提示 所以需要忽略警告: This condition will always return 'false' since the types 'typeof s1' and 'typeof s2' have no overlap.
 // @ts-ignore
 console.log('s1 === s2: ',s1 === s2)
+
+export {};
