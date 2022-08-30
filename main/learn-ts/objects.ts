@@ -235,5 +235,58 @@ const r1: ReadonlyTest = {
 // r1.user.length = 10 // 限制引用可变对象再变更自身
 
 // 元组类型
+const point_x_y_1: [number,number] = [10,20]
+function f4(point_x_y: [x: number, y: number]): number {
+    let [x,y] = point_x_y
+    point_x_y.push(x  + y)
+    return x - y
+}
+const v4 = f4(point_x_y_1);
+console.log('v4: ',v4, point_x_y_1)
+
+function f5(...point_x_y: [x: number, y: number]): number {
+    return f4( point_x_y )
+}
+const v5 = f5( ...point_x_y_1 ) // 可以这样调用!
+console.log('v5: ',v5, point_x_y_1) // 不过这样并不会 改变自身，原因在于 ...point_x_y_1 传入时并不是传入自身引用
+
+type StringNumberBooleans = [string, number, ...boolean[]];
+type StringBooleansNumber = [string, ...boolean[], number];
+type BooleansStringNumber = [...boolean[], string, number];
+
+// 最少两个值，后面可以是一个或者多个的boolean值
+const v6_1: StringNumberBooleans = ["hello",1];
+const v6_2: StringNumberBooleans = ["hello", 1, false];
+
+// 中间可以有0个或者多个 boolean
+const v7_1: StringBooleansNumber = ["hello",1];
+const v7_2: StringBooleansNumber = ["hello",false,1]
+
+// 开头可以有 0个或者多个 boolean 值
+const v8_1: BooleansStringNumber = ["hello",1];
+const v8_2: BooleansStringNumber = [false,true, "hello",1]
+
+function f6(...args: StringNumberBooleans ) {
+    let [ name, version, ...booleans ] = args
+
+    console.log('name: ',name,'version: ',version, booleans.join(","))
+}
+f6("hello",0.01,false,true,true)
+f6("hello",0.01) // 不传 boolean 一样可以工作
+
+
+// 只读元组类型
+function f7(point_x_y: readonly [x: number, y: number]){
+    // point_x_y.push // err readonly 声明的值 一般都不具备 修改自身的方法
+    // point_x_y.push(x  + y) // err 同上
+    return point_x_y[0] - point_x_y[1]
+}
+
+const point_x_y_2: readonly[x: number,y: number] = [0,1];
+console.log(f7(point_x_y_2))
+
+const point_x_y_3 = [10,20] as const; // 这样使类型系统推断更加优雅
+console.log(f7(point_x_y_3))
+
 
 export {}
