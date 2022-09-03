@@ -80,3 +80,6 @@ type IDUppercaseMyApp = IDUppercase<"my_app"> // ID_MY_APP
 // Uncapitalize 将字符串中的第一个字符转换为等效的小写字母。
 type IDCapitalize<Str extends string> = `ID_${Capitalize<Str>}`
 type IDCapitalizeMyApp = IDCapitalize<"my_app"> // ID_My_app
+
+
+export {}

@@ -31,3 +31,6 @@ const key = "age"
 type AgeKey = typeof key; // 文字类型
 type UserAge1 = User1[AgeKey] // 传入的是类型 而非值
 type UserAge2 = User1[typeof key] // 对 key 做上下文推断获取类型 string
+
+
+export {}

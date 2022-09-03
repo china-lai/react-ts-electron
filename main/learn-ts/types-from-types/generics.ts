@@ -136,3 +136,6 @@ function createInstance<Type>(c: { new (): Type }): Type {
 
 console.log(createInstance( Bee ).keeper)
 console.log(createInstance( Lion ).keeper)
+
+
+export {}

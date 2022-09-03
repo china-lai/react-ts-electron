@@ -67,3 +67,6 @@ type DBFields = {
     name: {type: string, pii: true}
 }
 type ObjectsNeedingGDPRDeletion = ExtractPII<DBFields>
+
+
+export {}

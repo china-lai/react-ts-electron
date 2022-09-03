@@ -69,3 +69,6 @@ type T1 = ToArray1< string | number > // string[] | number[]
 // [] 包裹
 type ToArray2<Type> = [Type] extends [any] ? Type[] : never;
 type T2 = ToArray2< string | number > // (string | number)[]
+
+
+export {}

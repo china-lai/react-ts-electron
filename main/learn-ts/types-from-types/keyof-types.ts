@@ -25,3 +25,5 @@ type StringIndex = {
 type StringIndexKey = keyof StringIndex // string | number
 
 
+
+export {}

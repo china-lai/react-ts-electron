@@ -39,3 +39,5 @@ type FirstParamsType6 = JumpFirstParams< typeof tmp_fn > // string
 type ParamsType1 = Parameters<typeof tmp_fn>
 // type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never; // 阅读源码
 
+
+export {}
