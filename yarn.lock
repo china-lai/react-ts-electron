@@ -3717,6 +3717,11 @@ ts-node@^10.9.1:
     v8-compile-cache-lib "^3.0.1"
     yn "3.1.1"
 
+ts-toolbelt@^9.6.0:
+  version "9.6.0"
+  resolved "https://registry.npmmirror.com/ts-toolbelt/-/ts-toolbelt-9.6.0.tgz#50a25426cfed500d4a09bd1b3afb6f28879edfd5"
+  integrity sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==
+
 tslib@^2.0.3, tslib@^2.3.0:
   version "2.4.0"
   resolved "https://registry.npmmirror.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
