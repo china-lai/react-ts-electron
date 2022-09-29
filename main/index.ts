@@ -1,6 +1,7 @@
 import {
     BrowserWindow,
-    app
+    app,
+    Menu
 } from 'electron'
 
 import isDev from 'electron-is-dev'
@@ -8,8 +9,8 @@ import {resolve} from 'path'
 
 function createWindow() {
     const window = new BrowserWindow({
-        width: 1000,
-        height: 1000,
+        width: 1600,
+        height: 900,
         webPreferences: {
             webSecurity: false,
             contextIsolation: false,
@@ -17,13 +18,17 @@ function createWindow() {
         }
     })
 
+    /*隐藏electron创听的菜单栏*/
+    Menu.setApplicationMenu(null)
+
     if (isDev) {
         try {
             require('electron-reloader')(module, {});
         } catch (_) {
         }
-        window.webContents.openDevTools()
-        window.loadURL("http://localhost:8080")
+        // window.webContents.openDevTools()
+        // window.loadURL("http://localhost:8080")
+        window.loadURL("http://www.baidu.com")
     } else {
         window.loadFile(
             resolve(__dirname, '../render/dist-render/index.html')

@@ -96,7 +96,7 @@ console.log(u3.toString())
 // private 仅当前类可见
 // 牢记 良好的规范总是从
 // public 修饰 方法
-// protected 修饰内置通用方法
+// protected 修饰父子类内置方法
 // private 修饰字段 修饰内置方法
 // private 修饰内置方法
 class User4 {
@@ -124,5 +124,47 @@ console.log(u4)
 // 1. 可以在包裹的函数内做通用的事情，如 统一的 脱敏 加解密
 // 2. 如果类后续需要改实现（同时保持兼容性），比如 _first_name _last_name 替换 实现，可以直接替换，而不影响
 
+
+// 私有字段
+class User5 {
+    #age: number;
+
+    constructor() {
+        this.#age = 0;
+
+    }
+}
+// 低版本实际使用 WeakMap 进行实现
+
+// 静态成员
+
+class User6 {
+    static init_id: bigint = 0n;
+}
+
+console.log(User6,User6.init_id)
+
+// this 值
+class User7 {
+    name: string = "lai"
+
+    getName(){
+        return this.name
+    }
+
+    getNameArrow = () => {
+        return this.name
+    }
+}
+
+const user7 = new User7()
+const user_obj = {
+    name: "user",
+    getName: user7.getName,
+    getNameArrow: user7.getNameArrow,
+}
+console.log(
+    user7
+)
 
 export {}
