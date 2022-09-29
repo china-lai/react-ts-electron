@@ -152,7 +152,12 @@ class User7 {
         return this.name
     }
 
+    // 始终保持正确的 this
     getNameArrow = () => {
+        return this.name
+    }
+
+    getNameArgs(this: User7){
         return this.name
     }
 }
@@ -162,9 +167,15 @@ const user_obj = {
     name: "user",
     getName: user7.getName,
     getNameArrow: user7.getNameArrow,
+    getNameArgs: user7.getNameArgs,
 }
-console.log(
-    user7
-)
+
+console.log(user_obj.getName()) // this 指向变化了
+console.log(user_obj.getNameArrow()) // 箭头函数不会使其 this 发生改变
+console.log(user_obj.getNameArgs()) 
+
+// const getNameArgs = user7.getNameArgs
+// console.log(getNameArgs()) // 报错，因为无正确的 this 调用
+
 
 export {}
